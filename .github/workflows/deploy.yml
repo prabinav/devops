@@ -27,5 +27,5 @@ jobs:
         username: new_user
         port: 22
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "./build/*"
-        target: "/var/www/html/"
+        source: "./build/"
+        target: "/home/new-user/"

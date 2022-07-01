@@ -28,4 +28,3 @@ jobs:
       run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     - name: Deploy with rsync
     - run: rsync -e ssh ./build/ static:/var/www/html/
-      

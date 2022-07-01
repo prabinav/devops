@@ -21,6 +21,7 @@ jobs:
     - run: yarn install
     - run: yarn build
     - run: mkdir ~/.ssh
+    - name: copy ssh key
     - run: 'echo "$SSH_KEY" >> ~/.ssh/github-action'
     - run: chmod 400 ~/.ssh/github-action
     - name: Deploy with scp

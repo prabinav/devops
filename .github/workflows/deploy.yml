@@ -30,9 +30,9 @@ jobs:
         target: "/home/new_user/"
     - name: Host Files 
       uses: appleboy/ssh-action@master
-         with:
-           host: ${{ secrets.SSH_HOST }}
-           username: new_user
-           key: ${{ secrets.SSH_PRIVATE_KEY }}
-           port: 22
-           script: cp -r /home/new_user/build/*  /var/www/html/
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: new_user
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: cp -r /home/new_user/build/*  /var/www/html/

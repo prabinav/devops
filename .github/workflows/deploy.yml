@@ -20,9 +20,11 @@ jobs:
         cache: 'yarn'
     - run: yarn install
     - run: yarn build
-    - run: mkdir ~/.ssh
-    - name: copy ssh key
-    - run: 'echo "$SSH_KEY" >> ~/.ssh/github-action'
-    - run: chmod 400 ~/.ssh/github-action
-    - name: Deploy with scp
-    - run: scp -r -i ~/.ssh/github-action ./build/ new_user@${{ secrets.SSH_HOST }}:/var/www/html/
+    - name: executing remote ssh commands using ssh key
+    - uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST}}
+        username: new_user
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        script: whoami

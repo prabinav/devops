@@ -22,8 +22,7 @@ jobs:
     - run: yarn build
     - run: mkdir ~/.ssh
     - run: 'echo "$SSH_KEY" >> ~/.ssh/github-action'
-    - run: chmod 400 ~/.ssh/github-action    
-    - name: Adding Known Hosts
-      run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+    - run: chmod 400 ~/.ssh/github-action
+    - run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
     - name: Deploy with scp
     - run: scp -r -i ~/.ssh/github-action ./build/ new_user@${{ secrets.SSH_HOST }}:/var/www/html/

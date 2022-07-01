@@ -21,7 +21,7 @@ jobs:
     - run: yarn install
     - run: yarn build
     - name: executing remote ssh commands using ssh key
-    - uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.SSH_HOST}}
         username: new_user

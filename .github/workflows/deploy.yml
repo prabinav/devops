@@ -20,7 +20,7 @@ jobs:
     - run: yarn install
     - run: yarn build
     - run: mkdir ~/.ssh
-    - run: 'echo "$SSH_KEY" >> ~/.ssh/prabin'
-    - run: chmod 400 ~/.ssh/prabin
-    - run: echo -e "Host 54.185.222.144\n\tUser prabin\n\tHostname 54.185.222.144\n\tIdentityFile ~/.ssh/prabin\n\tStrictHostKeyChecking No" >> ~/.ssh/config
+    - run: 'echo "$SSH_KEY" >> ~/.ssh/root'
+    - run: chmod 400 ~/.ssh/root
+    - run: echo -e "Host 54.185.222.144\n\tUser root\n\tHostname 54.185.222.144\n\tIdentityFile ~/.ssh/root\n\tStrictHostKeyChecking No" >> ~/.ssh/config
     - run: rsync -avz ssh ./build 54.185.222.144:~/

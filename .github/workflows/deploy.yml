@@ -22,5 +22,5 @@ jobs:
     - run: mkdir ~/.ssh
     - run: 'echo "$SSH_KEY" >> ~/.ssh/devops'
     - run: chmod 400 ~/.ssh/devops
-    - run: ssh-keyscan -t rsa  18.236.167.249  >> ~/.ssh/known_hosts
-    - run: scp -i ~/.ssh/devops -r ./build/* devops@18.236.167.249:/var/www/html/
+    - run: ssh-keyscan -t rsa  ${{ secrets.SSH_HOST }}  >> ~/.ssh/known_hosts
+    - run: scp -i ~/.ssh/devops -r ./build/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/var/www/html/
